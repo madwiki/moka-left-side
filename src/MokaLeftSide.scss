@@ -1,0 +1,19 @@
+//颜色递增加深
+$font-color1: rgba(255,255,255,.9);
+$font-color2: rgba(255,255,255,.7);
+$font-color3: rgba(255,255,255,.5);
+
+
+.moka-left-side{
+  width: 30%;
+  min-width: 300px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #607d8b;
+  .clear{
+    color: $font-color1;
+    background-color: transparent;
+    outline:none;border: none;
+    -webkit-tap-highlight-color:rgba(255,0,0,0);
+  }
+}
