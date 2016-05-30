@@ -1,34 +1,36 @@
 import './MokaLeftSide.scss'
 import React, {Component, PropTypes} from 'react'
+import CheckTree from './CheckTree';
 
 
-
-export default class MockLeftSide extends Component {
+export default class MokaLeftSide extends Component {
   constructor(props){
     super(props);
-  }
-  componentWillReceiveProps(nextProps) {
+    this.state = {
 
-  }
-  componentDidMount() {
-
-  }
-  componentWillUnmount() {
-
+    }
   }
   render (){
+    const { data, title } = this.props;
     return (
         <div className="moka-left-side">
-          <header className="title">
-            <h2 className="description"></h2>
+          <header className="header">
+            <h2 className="title">{title}</h2>
             <button className="clear">清空</button>
           </header>
+          <div className="tree-container">
+            {data.map((item,index) => {
+              return (
+                  <CheckTree data={item} key={index}/>
+                );
+            })}
+          </div>
         </div>
       )
   }
 }
 
 
-function getStyle(ele) {
-  return window.getComputedStyle(ele,null)
-}
+// function getStyle(ele) {
+//   return window.getComputedStyle(ele,null)
+// }

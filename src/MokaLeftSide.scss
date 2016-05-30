@@ -3,17 +3,30 @@ $font-color1: rgba(255,255,255,.9);
 $font-color2: rgba(255,255,255,.7);
 $font-color3: rgba(255,255,255,.5);
 
+$background-color: #607d8b;
+
+$title-size: 20px;
+$font-size: 16px;
+
 
 .moka-left-side{
   width: 30%;
   min-width: 300px;
   height: 100vh;
   overflow-y: auto;
-  background-color: #607d8b;
-  .clear{
-    color: $font-color1;
-    background-color: transparent;
-    outline:none;border: none;
-    -webkit-tap-highlight-color:rgba(255,0,0,0);
+  background-color: $background-color;
+  padding: 30px;
+  .header{
+    .title{
+      font-size: $title-size;
+    }
+    .clear{
+      color: $font-color1;
+      background-color: transparent;
+      outline:none;border: none;
+      -webkit-tap-highlight-color:rgba(255,0,0,0);
+      font-size: $font-size;
+      font-weight: bolder;
+    }
   }
 }
