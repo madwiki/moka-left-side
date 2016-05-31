@@ -1,7 +1,5 @@
 ## moka-left-side
 
-See  [moka-left-side](http://madwiki.github.io/moka-left-side/)
-
 Source code in the `src` directory.
 
 example code in the `example` directory.
@@ -18,7 +16,7 @@ Then you can find it in `dist` dir.
 
 #### Usage
 
-Two props needed,  `data`  and `title`.For example:
+Two props needed,  `data`  and `title`.For example: [moka-left-side](http://madwiki.github.io/moka-left-side/)
 
 ```javascript
     const data = [
