@@ -7,7 +7,7 @@ export default class App extends Component {
   render() {
     const data = [
       {
-        root: {text: '工程研发部门'},
+        root: {text: '工程研发部门', num: 120},
         branch: [
           {text: 'Mac开发工程师', num: 9},
           {text: 'IOS App测试工程师', num: 17},
@@ -17,7 +17,7 @@ export default class App extends Component {
         ],
       },
       {
-        root: {text: '产品设计部门'},
+        root: {text: '产品设计部门', num: 136},
         branch: [
           {text: '网页设计师', num: 47},
           {text: 'ID/工业设计师', num: 39},

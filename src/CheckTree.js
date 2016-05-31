@@ -12,7 +12,12 @@ export default class CheckTree extends Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-
+    if (nextProps.signal == 'clear') {
+      this.setState({
+        rootValue: false,
+        branchValues: nextProps.data.branch.map(() => false)
+      });
+    }
   }
   render (){
     const {data} = this.props;
@@ -20,11 +25,11 @@ export default class CheckTree extends Component {
     return (
       <div className="tree">
         <div className="root">
-          <CheckBox checked={rootValue} label={data.root.text} callback={this.rootCallback} />
+          <CheckBox checked={rootValue} label={data.root.text} labelIcon={true} num={data.root.num} callback={this.rootCallback} />
         </div>
         <div className="branch">
           {data.branch.map((item,index) => (
-            <CheckBox checked={branchValues[index]} label={item.text} key={index} order={index} callback={this.branchCallback} />
+            <CheckBox checked={branchValues[index]} label={item.text} num={item.num} key={index} order={index} callback={this.branchCallback} />
           ))}
         </div>
       </div>

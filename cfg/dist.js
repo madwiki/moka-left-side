@@ -46,7 +46,7 @@ config.module.preLoaders[0].include = srcPath;
 config.output = {
   path: path.join(__dirname,'/../dist'),
   filename: 'index.js',
-  library: 'MadNav',
+  library: 'MokaLeftSide',
   libraryTarget: 'umd'
 };
 

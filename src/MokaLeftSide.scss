@@ -1,32 +1,101 @@
 //颜色递增加深
 $font-color1: rgba(255,255,255,.9);
-$font-color2: rgba(255,255,255,.7);
-$font-color3: rgba(255,255,255,.5);
+$font-color2: rgba(255,255,255,.6);
+$font-color3: rgba(0,0,0,.2);
 
 $background-color: #607d8b;
 
-$title-size: 20px;
-$font-size: 16px;
+$title-size: 24px;
+$font-size: 15px;
+
+$checkbox-size: 16px;
 
 
 .moka-left-side{
-  width: 30%;
+  font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-weight: 600;
+  display: inline-block;
   min-width: 300px;
   height: 100vh;
   overflow-y: auto;
   background-color: $background-color;
   padding: 30px;
+  font-size: $font-size;
   .header{
+    position: relative;
     .title{
+      color: $font-color2;
       font-size: $title-size;
     }
     .clear{
+      display: inline-block;
+      position: absolute;
+      top: 5px;
+      right: 0px;
+      cursor: pointer;
       color: $font-color1;
       background-color: transparent;
       outline:none;border: none;
       -webkit-tap-highlight-color:rgba(255,0,0,0);
       font-size: $font-size;
-      font-weight: bolder;
     }
   }
+  .tree-container{
+    input[type="checkbox"]{
+      opacity: 0;
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      top: -10%;
+      left: -10%;
+    }
+    input[type="checkbox"]:checked{
+      opacity: 1;
+    }
+    .checkbox-style{
+      position: relative;
+      display: inline-block;
+      margin-right: 10px;
+      border-radius: 5px;
+      vertical-align: middle;
+      border: 2px solid $font-color2;
+      width: $checkbox-size;
+      height: $checkbox-size;
+      overflow: hidden;
+    }
+    .label{
+      margin-right: 30px;
+    }
+    .tree{
+      margin: 10px 0;
+      .root{
+        color: $font-color1;
+        min-height: 30px;
+        .label{
+          svg{
+            fill: $font-color2;
+            vertical-align: middle;
+          }
+        }
+        .num{
+          background-color: $font-color3;
+          padding-left: 5px;
+          padding-right: 5px;
+          border-radius: 20px;
+        }
+      }
+      .branch{
+        margin-left: 30px;
+        color: $font-color2;
+        .checkbox{
+          min-height: 28px;
+        }
+      }
+      .num{
+        display: inline-block;
+        float: right;
+      }
+    }
+  }
+
 }
