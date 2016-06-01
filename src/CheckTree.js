@@ -6,6 +6,7 @@ export default class CheckTree extends Component {
     super(props);
     this.rootCallback = this.rootCallback.bind(this);
     this.branchCallback = this.branchCallback.bind(this);
+    this.useCheckCallback = this.useCheckCallback.bind(this);
     this.state = {
       rootValue: false,
       branchValues: props.data.branch.map(() => false)
@@ -51,6 +52,10 @@ export default class CheckTree extends Component {
         branchValues: newBranchValues
       });
     });
+    //在执行完所有同步代码后执行，
+    //写在这里而不是生命周期里，是为了防止无意义的重复调用，
+    //下同
+    setTimeout(this.useCheckCallback,0);
   }
 
   branchCallback(value,order) {
@@ -81,5 +86,26 @@ export default class CheckTree extends Component {
         })
       }
     });
+    setTimeout(this.useCheckCallback,0);
+  }
+
+  useCheckCallback(){
+    //通过调外部函数传出数据
+    const data = this.props.data;
+    let newData = {};
+    newData.root = {
+      text: data.root.text,
+      num: data.root.num,
+      value: this.state.rootValue
+    }
+    newData.branch = data.branch.map((item,index) => {
+      const {text, num} = item;
+      return {
+        text,
+        num,
+        value: this.state.branchValues[index]
+      }
+    });
+    this.props.checkCallback(newData,this.props.order);
   }
 }

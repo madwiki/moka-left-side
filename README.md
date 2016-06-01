@@ -16,9 +16,19 @@ Then you can find it in `dist` dir.
 
 #### Usage
 
-Two props needed,  `data`  and `title`.For example: [moka-left-side](http://madwiki.github.io/moka-left-side/)
+Three props needed,  `data` , `title` and `afterChange`.
+
+You would receive the new data with value in afterChange.
+
+See example here: [http://madwiki.github.io/moka-left-side/](http://madwiki.github.io/moka-left-side/)
 
 ```javascript
+export default class App extends Component {
+  constructor(){
+    super();
+    this.doSomeThing = this.doSomeThing.bind(this);
+  }
+  render() {
     const data = [
       {
         root: {text: '工程研发部门', num: 120},
@@ -41,8 +51,13 @@ Two props needed,  `data`  and `title`.For example: [moka-left-side](http://madw
       }
     ]
     return (
-      <MokaLeftSide data={data} title="招聘职位"/>
+      <MokaLeftSide data={data} title="招聘职位" afterChange={this.doSomeThing}/>
     )
+  }
+  doSomeThing(newData) {
+    console.log(JSON.stringify(newData));
+  }
+}
 ```
 
 
@@ -64,6 +79,8 @@ Two props needed,  `data`  and `title`.For example: [moka-left-side](http://madw
 组织功能在0.5个小时左右。
 
 查资料应该用了1个小时。
+
+（补充：发现居然没有写数据出口，于是写了 `afterChange` 用于传入回调函数，用于处理返回的新对象。用时40多分钟。所以总用时估计在6小时左右）
 
 
 

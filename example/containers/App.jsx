@@ -4,6 +4,10 @@ import React, {Component, PropTypes, cloneElement, createClass} from 'react';
 import MokaLeftSide from '../../src/index';
 
 export default class App extends Component {
+  constructor(){
+    super();
+    this.doSomeThing = this.doSomeThing.bind(this);
+  }
   render() {
     const data = [
       {
@@ -27,7 +31,10 @@ export default class App extends Component {
       }
     ]
     return (
-      <MokaLeftSide data={data} title="招聘职位"/>
+      <MokaLeftSide data={data} title="招聘职位" afterChange={this.doSomeThing}/>
     )
+  }
+  doSomeThing(newData) {
+    console.log(JSON.stringify(newData));
   }
 }

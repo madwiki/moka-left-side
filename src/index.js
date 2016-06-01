@@ -7,9 +7,14 @@ export default class MokaLeftSide extends Component {
   constructor(props){
     super(props);
     this.clear = this.clear.bind(this);
+    this.checkCallback = this.checkCallback.bind(this);
     this.state = {
-      signal: null
-    }
+      signal: null,
+      dataWithValue: Object.assign({}, this.props.data)
+    };
+    this._state = {
+      dataWithValue: Object.assign({}, this.props.data)
+    };
   }
   render (){
     const { data, title } = this.props;
@@ -22,7 +27,7 @@ export default class MokaLeftSide extends Component {
           <div className="tree-container">
             {data.map((item,index) => {
               return (
-                  <CheckTree data={item} key={index} signal={this.state.signal}/>
+                  <CheckTree data={item} key={index} order={index} signal={this.state.signal} checkCallback={this.checkCallback}/>
                 );
             })}
           </div>
@@ -39,5 +44,9 @@ export default class MokaLeftSide extends Component {
         signal: null
       })
     })
+  }
+  checkCallback(newData,order) {
+    this._state.dataWithValue[order] = newData;
+    this.props.afterChange(this._state.dataWithValue);
   }
 }
