@@ -2,7 +2,6 @@ import React, {Component, PropTypes} from 'react'
 
 export default class MokaLeftSide extends Component {
   constructor(props){
-    console.log(props.key);
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
